@@ -1,0 +1,101 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb}
+\usepackage{fullpage}
+\newcommand{\dsum}{\displaystyle\sum}
+\newcommand{\dbcup}{\displaystyle\bigcup}
+\newcommand{\dbcap}{\displaystyle\bigcap}
+\newcommand{\dcup}{\displaystyle\cup}
+\newcommand{\dcap}{\displaystyle\cap}
+\newcommand{\Pb}{\mathbb{P}}
+\newcommand{\bkt}[1]{\left(#1\right)}
+\title{MA2040: Probability, Statistics and Stochastic Processes\\
+Problem Set-I}
+\author{Sivaram Ambikasaran}
+\begin{document}
+	\maketitle
+	\begin{enumerate}
+		\item
+		A six-sided die is made in a way that each even face is twice as likely as each odd face. All even faces are equally likely, as are all odd faces. Construct a probabilistic model for a single roll of this die and find the probability that the outcome is less than 4.
+		\item
+		Let $S_1,S_2,\ldots,S_n$ be a partition of the sample space $\Omega$.
+		\begin{enumerate}
+			\item
+			Show that for any event $A$,
+			$$\Pb(A) = \dsum_{i=1}^n \Pb\bkt{A \dcap S_i}$$
+			\item
+			Use the previous part to show that, for events $A$, $B$ and $C$,
+			$$\Pb\bkt{A} = \Pb\bkt{A \dcap B} + \Pb\bkt{A \dcap C} + \Pb\bkt{A \dcap B^c \dcap C^c} - \Pb\bkt{A \dcap B \dcap C}$$
+		\end{enumerate}
+		\item
+		\begin{enumerate}
+			\item
+			Prove that for any two events $A$ and $B$, we have
+			$$\Pb\bkt{A \dcap B} \geq \Pb(A) + \Pb(B) - 1$$
+			\item
+			Using the above, establish the following generalization:
+			$$\Pb\bkt{A_1 \dcap A_2 \dcap \cdots \dcap A_n} \geq \Pb\bkt{A_1} + \Pb\bkt{A_2} + \cdots + \Pb\bkt{A_n} - \bkt{n-1}$$
+		\end{enumerate}
+		\item
+		Let $\Omega = \{\bkt{x_1,x_2,x_3}: x_1+x_2+x_3 = 2019\}$ and $x_1,x_2,x_3$ are positive integers. Assuming all the elements in $\Omega$ are equally likely to be drawn, what is the probability of having $x_1,x_2$ and $x_3$ (all three) to be odd?
+		\item
+		Two fair $6$-sided dice are rolled.
+		\begin{enumerate}
+			\item
+			Given that the roll results in a sum of $4$ or less, find the conditional probability that both dice show the same number.
+			\item
+			Given that the two dice land on different numbers, find the conditional probability that at least one die roll is a $6$.
+		\end{enumerate}
+		\item
+		A batch of $100$ items is inspected by testing $4$ randomly selected items. If one of the four is defective, the batch is rejected. What is the probability that the batch is accepted, if it contains exactly five defectives?
+		\item
+		Consider a coin that comes up heads with probability $p$ and tails with probability $1-p$. Let $q_n$ be the probability of obtaining even number of heads in $n$ independent tosses. Derive a recursion that relates $q_n$ to $q_{n-1}$ and establish the formula
+		$$q_n = \dfrac{1+\bkt{1-2p}^n}2$$
+		\item
+		Two playes $X$ and $Y$ alternately roll a pair of unbiased dice. $X$ wins if on a throw he gets a sum of $6$ before $Y$ gets a sum of $7$; $Y$ wins if he obtains a sum of $7$ before $X$ obtains a sum of $6$; If $X$ begins the game, prove that his probability of winning is $30/61$.
+		\item
+		In a deck of cards, let $A$ be the event of drawing a spade and $B$ be the event of drawing a king. Assuming that all cards are equally likely to be drawn, obtain $\Pb(A \vert B)$, $\Pb (B \vert A)$. Are $A$ and $B$ independent?
+		\item
+		Let $p_X$ denote the probability that India will play a team $X$ in the World Cup Final $2019$, given that India will qualify for the World Cup Final $2019$. Let $q_X$ be the probability of Kohli scoring a century against team $X$.
+
+		\begin{table}[!htbp]
+			\begin{center}
+			\begin{tabular}{|c|c|c|}
+				\hline
+				Teams & $p_X$ & $q_X$\\
+				\hline
+				\hline
+				Afghanistan & $0.02$ & $0.50$\\
+				\hline
+				Australia & $0.10$ & $0.30$ \\
+				\hline
+				Bangladesh & $0.03$ & $0.40$\\
+				\hline
+				England & $0.30$ & $0.10$\\
+				\hline
+				New Zealand & $0.15$ & $0.25$\\
+				\hline
+				Pakistan & $0.10$ & $0.15$\\
+				\hline
+				South Africa & $0.20$ & $0.20$\\
+				\hline
+				SriLanka & $0.05$ & $0.25$\\
+				\hline
+				West Indies & $0.05$ & $0.20$\\
+				\hline
+			\end{tabular}
+			\end{center}
+		\end{table}
+		\begin{enumerate}
+			\item
+			From the information given above, find the probability that Kohli will score a century in the World Cup Final $2019$. 
+			\item
+			Given that Kohli scores a century in the World Cup Final $2019$, which team is
+			\begin{enumerate} 
+				\item Most likely to have played the Final along with India
+				\item Least likely to have played the Final along with India
+			\end{enumerate}
+		\end{enumerate}
+		\item
+		A test for certain rare virus correctly predicts that the person has a virus $99\%$ of the time and correctly identifies that the person doesn't carry a virus $98\%$ of the time. It is known $1\%$ of the population carries the virus. What is the probability of a person actually having the disease, if he has tested positive to the test?
+	\end{enumerate}
+\end{document}
