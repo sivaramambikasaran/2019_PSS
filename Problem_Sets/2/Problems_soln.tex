@@ -1,0 +1,199 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb}
+\usepackage{fullpage}
+\usepackage{enumerate}
+
+\newcommand{\dsum}{\displaystyle\sum}
+\newcommand{\abs}[1]{\displaystyle\left\lvert#1\right\rvert}
+\newcommand{\dbcup}{\displaystyle\bigcup}
+\newcommand{\dbcap}{\displaystyle\bigcap}
+\newcommand{\dcup}{\displaystyle\cup}
+\newcommand{\dcap}{\displaystyle\cap}
+\newcommand{\Pb}{\mathbb{P}}
+\newcommand{\Eb}{\mathbb{E}}
+\newcommand{\bkt}[1]{\left(#1\right)}
+\newcommand{\soln}[1]{\textbf{Solution}:#1}
+\title{MA2040: Probability, Statistics and Stochastic Processes\\
+Problem Set-II}
+\author{Sivaram Ambikasaran}
+\begin{document}
+	\maketitle
+	\begin{enumerate}
+		\item
+		Assume that Carlsen meets Anand in the $2020$ chess championship. The championship match consists of a sequence of games and each game has three outcomes (i) Anand winning, (ii) Carlsen winning, (iii) A draw. The first player to win a game wins the match. For instance, we could have a sequence of $3$ draws followed by a Carlsen victory in the $4^{th}$ game, which would mean that Carlsen wins the Championship. The probability of a single game ending in
+		\begin{enumerate}
+			\item
+			Carlsen's favour is $0.4$
+			\item
+			Anand's favour is $0.2$
+			\item
+			draw is $0.4$
+		\end{enumerate}
+		\begin{enumerate}[i]
+			\item
+			What is the probability of Anand winning the championship?\\
+			\soln{
+			Probability of Anand winning the match on the $k^{th}$ game is given by $0.4^{k-1} \times 0.2$, i.e., the first $k-1$ games have to be drawn and the $k^{th}$ game has to be won by Anand. Hence, the probability of Anand winning the championship is
+			$$\dsum_{k=1}^{\infty} 0.4^{k-1} \times 0.2 = \dfrac{0.2}{1-0.4} = 1/3$$
+			}
+			\item
+			What is the probability of Carlsen winning the championship?\\
+			\soln{
+			Probability of Carlsen winning the match on the $k^{th}$ game is given by $0.4^{k-1} \times 0.2$, i.e., the first $k-1$ games have to be drawn and the $k^{th}$ game has to be won by Carlsen. Hence, the probability of Carlsen winning the championship is
+			$$\dsum_{k=1}^{\infty} 0.4^{k-1} \times 0.4 = \dfrac{0.4}{1-0.4} = 2/3$$
+			This can also be obtained as $1-1/3=2/3$, since the probability of Anand or Carlsen winning the Championship is $1$.
+			}
+			\item
+			What is the Probability Mass Function for the number of games played in the championship?\\
+			\soln{
+			For the match to last $k$ games, the first $k-1$ have to be drawn and the $k^{th}$ game has to be won either by Anand or Carlsen. Hence, $P(k) = 0.4^{k-1}\times\bkt{0.4+0.2} = 0.6 \times 0.4^{k-1}$.
+			}
+		\end{enumerate}
+		\item
+		Consider rolling a pair of fair dice. Let $X$ denote the difference between the numbers that show up on the dice, i.e., $X = \abs{D_1-D_2}$, where $D_i$ is the number that shows up on the $i^{th}$ dice.
+		\begin{itemize}
+			\item
+			What are the possible values for $X$?\\
+			\soln{
+			$X$ can take values from $0$ to $5$.
+			}
+			\item
+			What is the probability mass function for $X$?\\
+			\soln{
+			We have
+			$$P(0) = \dfrac{6}{36},\,\,\, P(1) = \dfrac{10}{36},\,\,\, P(2) = \dfrac{8}{36},\,\,\, P(3) = \dfrac{6}{36},\,\,\, P(4) = \dfrac{4}{36},\,\,\, P(5) = \dfrac{2}{36}$$
+			}
+			\item
+			Find the expected value and standard deviation of $X$.\\
+			\soln{
+			$$\Eb\bkt{X} = \dfrac{0 \times 6 + 1 \times 10 + 2 \times 8+ 3 \times 6 + 4 \times 4 + 5 \times 2}{36} = \dfrac{70}{36} = 1.9 \bar{4}$$
+			}
+		\end{itemize}
+		\item
+		A fair die is rolled repeatedly till an odd prime appears. What is the probability that the number of rolls exceed $5$?\\
+		\soln{
+		Probability of an odd prime occuring in a single roll is $1/3$ (since only $3$ and $5$ have to occur). For the number of rolls to exceed $5$, we need the first $5$ rolls to be not an odd prime. Hence, the probability of this event is $\bkt{\dfrac23}^5$.
+		}
+		\item
+		Let $X$ be a discrete random variable with mean $\mu$ and variance $\sigma^2$. Prove that
+		$$\mathbb{E}\left[\bkt{X-a}^2\right] = \sigma^2 + \bkt{a-\mu}^2$$
+		Hence, prove that the mean (or expected value) minimizes $\mathbb{E}\left[\bkt{X-a}^2\right]$.\\
+		\soln{
+		We have
+		$$\Eb\left[\bkt{X-a}^2\right] = \Eb\left[\bkt{X-\mu + \mu - a}^2\right] = \Eb\left[\bkt{X-\mu}^2\right] + 2\Eb\left[\bkt{X-\mu} \bkt{\mu-a}\right] + \Eb\left[\bkt{\mu-a}^2\right]$$
+		since the expectation is a linear operator.
+		This immediately gives us that
+		$$\mathbb{E}\left[\bkt{X-a}^2\right] = \sigma^2 + \bkt{a-\mu}^2$$
+		since $\Eb\left[\bkt{X-\mu} \bkt{\mu-a}\right] = \bkt{\mu-a}\Eb\left[\bkt{X-\mu}\right] = 0$ and $\Eb\left[\bkt{\mu-a}^2\right] = \bkt{\mu-a}^2$.
+		}
+		\item
+		A production process is partitioned into two independent sub-processes. The probabilities of a defective component in the first and second sub-processes are $0.01$ and $0.02$, respectively. If $50$ units are produced, what is the probability there will be fewer than $3$ defective units?\\
+		\soln{
+		Probability of a unit being non-defective is $\bkt{1-0.01} \times \bkt{1-0.02}$. Hence, the probability of a unit being defective is $1-\bkt{1-0.01} \times \bkt{1-0.02} = 0.0302$. The desired probability is given as
+		$$\dsum_{k=0}^2 \dbinom{50}k \bkt{0.0302}^k\bkt{0.9698}^{50-k}  \approx 0.8082$$
+		We could also approximate this probability with a Poisson random variable with expected defectives to be $50 \times 0.0302 = 1.51$. Hence, the desired probability is
+		$$\dsum_{k=2}^2 e^{-1.51} \dfrac{1.51^k}{k!} \approx 0.8063$$
+		}
+		\item
+		Communication channels do not always trasmit the correct signal. Suppose that for a particular channel the error rate is $1$ in $100$, i.e., the probability of incorrect transmission is $1/100$. If $2000$ messages are sent in a given week, and it is assumed that their transmissions are independent, what is the probability that there will be at least $5$ errors?\\
+		\soln{
+		Desired probability is $$1-\dsum_{k=0}^4 \dbinom{2000}k \bkt{0.01}^k \bkt{0.99}^{2000-k} \approx 0.999984$$
+		Approximating it with Poisson, the expected number of incorrect transmissions is $20$, we get the probability as
+		$$1-e^{-20}\bkt{\dsum_{k=0}^4 \dfrac{20^k}{k!}} \approx 0.999983$$
+		}
+		\item
+		A casino offers a game of chance for a single player in which a fair coin is tossed at each stage. The initial stake starts at $\$ 1$ and is increased by $\$ 1$ every time heads appears. The first time tails appears, the game ends and the player wins whatever is in the pot. Thus the player wins $\$1$ dollar if tails appears on the first toss, $\$2$ dollars if heads appears on the first toss and tails on the second, $\$3$ dollars if heads appears on the first two tosses and tails on the third, and so on. Mathematically, the player wins $\$k$ dollars, when we have the first $k-1$ tosses to be heads and the $k^{th}$ toss to be a tail. The casino demands a pay of $\$3$ to enter the game. Will you play the game?\\
+		\soln{
+		Probability of winning on the $k$ attempt is given by $\dfrac1{2^k}$, i.e., the first first $k-1$ tosses are heads and the $k^{th}$ toss is a tail. Hence, the expected return is
+		$$\dsum_{k=1}^{\infty} \dfrac{k}{2^k} = 2$$
+		Since the casino demands a pay of $\$3$ to enter the game, which is greater than the expected return, it is not advisable to play the game.
+		}
+		\item
+		Repeat the above if the price money was $2^k$ instead of $k$ and the casino demands a pay of $\$100$ to enter the game. Will you still be willing to play the game? (For more details, look up St. Petersburg paradox)\\
+		\soln{
+		My expected return in this case is given by
+		$$\dsum_{k=1}^{\infty} \dfrac{2^k}{2^k}$$
+		which diverges. Hence, going by the expected value we could play the game. However, I will make a profit only when my return exceeds $100$, which happens with a probability of $1/2^{100}$.
+		}
+		\item
+		If $X$ is a discrete random variable, prove that (i) $\mathbb{E}\left[aX +b\right] = a \mathbb{E}\left[X\right] + b$ and (ii) $\text{Var}\left[aX +b\right] = a^2 \text{Var}\bkt{X}$\\
+		\soln{
+		Follows immediately from definition.
+		$$\Eb\left[aX+b\right] = \dsum_{x} \bkt{ax+b}p(x) = a \dsum_{x} xp(x) + b\dsum_{x} p(x) = a \Eb\left[X\right]+b$$
+		}
+		\item
+		Data shows that $5\%$ of the individuals reserving tables at a restaurant will not appear. If the restaurant has $50$ tables and takes $52$ reservations, what is the probability that it will be able to accommodate everyone appearing?\\
+		\soln{
+		Probability of failing to accommodate everyone is when $51$ individuals or $52$ individuals appear. This happens with a probability of
+		$$\dbinom{52}{51} \bkt{0.95}^{51} \times \bkt{0.05} + \dbinom{52}{52} \bkt{0.95}^{52} = 0.95^{51} \times \bkt{0.95+52 \times 0.05} = 3.55 \times 0.95^{51} \approx 0.2595$$
+		Hence, desired probability is $0.7405$.
+		}
+		\item
+		Electrical power failures in a workplace are modeled as a Poisson experiment with a rate of one every two months.
+		\begin{enumerate}
+			\item
+			What is the probability of having more than $10$ failures in a year?\\
+			\soln{
+			The mean for a year is $6$. Desired probability is $e^{-6} \dsum_{k=11}^{\infty} \dfrac{6^{k}}{k!} \approx 0.04262$
+			}
+			\item
+			What is the probability that the number of failures in a year will differ by more than a standard deviation from the expected number?\\
+			\soln{
+			The standard deviation for a year is $\sqrt{6} \approx 2.45$. Hence, the desired probability is
+			$$1-e^{-6}\bkt{\dfrac{6^4}{4!}+\dfrac{6^5}{5!}+\dfrac{6^6}{6!}+\dfrac{6^7}{7!}+\dfrac{6^8}{8!}} \approx 0.3039$$
+			}
+		\end{enumerate}
+		\item
+		Table~\ref{table_1} below indicates the joint probabilities per day.
+		\begin{table}[!htbp]
+			\begin{center}
+			\caption{Joint probability of weather and power cuts}
+		\begin{tabular}{|c|c|c|}
+			\hline
+			& Sunny & Rainy\\
+			\hline
+			Power cut & $0.2$ & $0.15$ \\
+			\hline
+			No power cut & $0.6$ & $p$\\
+			\hline
+		\end{tabular}
+		\label{table_1}
+		\end{center}
+		\end{table}
+		\begin{enumerate}
+			\item
+			Find $p$.\\
+			\soln{Sum must be $1$. Hence, $p=0.05$.}
+			\item
+			What is the probability that there won't be rain for one week?\\
+			\soln{
+			Probability that it will be sunny is $0.2+0.6=0.8$. Hence, probability it won't rain for one week is $0.8^7$.
+			}
+			\item
+			What is the probability that there will be at least one power in the next three days?\\
+			\soln{
+			Probability of having no power cuts is $0.65$. Hence, probability of having at least one power in the next three days $1-0.65^3 = 0.725375$.
+			}
+			\item
+			Is there a dependence between weather and power cuts?\\
+			\soln{
+			Let $X$ be the event of having a power cut and $Y$ be the event of the day being sunny.
+			We have
+			$$P(X) = 0.2+0.15 = 0.35$$
+			We have
+			$$P(X \mid Y) = \dfrac{P(X,Y)}{P(Y)} = \dfrac{0.2}{0.2+0.6} = 0.25$$
+			Hence, we see that there is a dependence between weather and power cuts.
+			}
+			\item
+			Find the joint probability, all marginal probabilities, and all conditional probabilities.\\
+			\soln{
+			We have $P(X) = 0.35$, $P(X^c) = 0.65$, $P(Y) = 0.8$, $P(Y^c) = 0.2$.
+			$$P(X \mid Y) = \dfrac{P(X,Y)}{P(Y)} = 0.25 \,\,\,\, P(X^c \mid Y) = 0.75$$
+			$$P(X \mid Y^c) = \dfrac{P(X,Y^c)}{P(Y^c)} = \dfrac{0.15}{0.2} = 0.75 \,\,\,\, P(X^c \mid Y^c) = 0.25$$
+			$$P(Y \mid X) = \dfrac{P(X,Y)}{P(X)} = 4/7 \,\,\,\, P(Y^c \mid X) = 3/7$$
+			$$P(Y \mid X^c) = \dfrac{P(X^c,Y)}{P(X^c)} = 12/13 \,\,\,\, P(Y^c \mid X^c) = 1/13$$
+			}
+		\end{enumerate}
+	\end{enumerate}
+	
+\end{document}
