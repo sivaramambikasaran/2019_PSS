@@ -1,0 +1,145 @@
+\documentclass[11pt]{article}
+\usepackage{setspace}
+\usepackage{amsmath,amssymb}
+\usepackage{array,multirow,graphicx}
+\newcommand{\abs}[1]{\left\lvert #1\right\rvert}
+\newcommand{\bkt}[1]{\left( #1\right)}
+\newcommand{\dsum}{\displaystyle\sum}
+\newcommand{\dint}{\displaystyle\int}
+\newcommand{\dcap}{\displaystyle\cap}
+\newcommand{\Rb}{\mathbb{R}}
+\newcommand{\Eb}{\mathbb{E}}
+\newcommand{\Pb}{\mathbb{P}}
+\newcommand{\magn}[1]{\lVert #1 \rVert}
+\newcommand{\point}{(1 point) }
+\newcommand{\points}[1]{(#1 points) }
+\newcommand{\fillblank}{\hfill\underline{\hspace{5em}}}
+\newcommand{\fillans}[1]{\hfill$\boxed{#1}$}
+\usepackage[left=0.5in,right=0.5in,top=0.5in,bottom=0.5in]{geometry}
+\newcommand{\soln}[1]{\textbf{Solution:} #1}
+% \usepackage{fullpage}
+\begin{document}
+	\doublespacing
+	\noindent
+	\textbf{MA 2040 $\boxed{A}$ \hspace{5em} Probability, Statistics and Stochastic Processes \hspace{4em} Max. Marks 20}\\
+	\noindent\textbf{Duration 50 minutes \hspace{10em} Quiz-I \hfill February 18, 2019}\\
+	\noindent\textbf{Student Name} \underline{\hspace{20em}} \hfill \textbf{Student Roll number} \underline{\hspace{10em}}\\
+	\noindent\textbf{Instructor Name} \underline{\hspace{20em}} \hfill \textbf{Classroom} \underline{\hspace{10em}}
+
+\singlespacing
+\begin{enumerate}
+	\item
+	Let $X$ be a random variable on $[1,\infty)$, whose probability density function is given by $p_X(x) = k/x^3$.
+	\begin{itemize}
+		\item
+		\point Value of $k$ is \fillans{2}\\
+		\soln{We need $\dint_1^{\infty}\dfrac{k}{x^3}dx = 1 \implies k=2$.}
+		\item
+		\point Cummulative distribution function (CDF) is \fillans{F_X(x) = \begin{cases}\bkt{1-1/x^2} & \text{for } x \geq 1\\
+		0 & \text{else}
+		\end{cases}}\\
+		\soln{
+		\soln{We have $F_x(x) = \dint_1^x \dfrac{k}{y^3}dy = \bkt{1-\dfrac1{x^2}}$ for $x \geq 1$. For $x \leq 1$, $F_X(x) = 0$.}
+		}
+		\item
+		\point Expected value is \fillans{2}\\
+		\soln{
+		We need $\dint_1^{\infty}x \cdot \dfrac{k}{x^3}dx = k = 2$.
+		}
+		\item
+		\point Variance is \fillans{\infty}\\
+		\soln{
+		We have variance to be given by $\Eb\bkt{X^2} - \Eb{X}^2$. We have
+		$$\Eb\bkt{X^2} = \dint_1^{\infty}x^2 \cdot \dfrac{k}{x^3}dx = \infty$$
+		}
+		\item
+		\point Probability that the random variable, $X$, takes a value less than $2$ is \fillans{3/4}\\
+		\soln{
+		This is nothing but $F_X(2)$.
+		}
+	\end{itemize}
+	\item
+	A box contains three coins: two fair coins and one fake coin. The fake coin has both sides as heads. A coin is picked at random (all three coins are equally likely to be chosen) and tossed.
+	\begin{itemize}
+		\item
+		\point Then the probability of getting a head is \fillans{2/3}\\
+		\soln{
+		$$\Pb\bkt{H} = \Pb\bkt{H \mid \text{fake coin}} \Pb\bkt{\text{fake coin}}+ \Pb\bkt{H \mid \text{fair coin}} \Pb\bkt{\text{fair coind}} = 1 \times 1/3 + 1/2 \times 2/3 = 2/3$$
+		}
+		\item
+		\point If a head comes up, then the probability that the coin is a fake coin is \fillans{1/2}\\
+		\soln{
+		$$\Pb\bkt{\text{fake coin} \mid \text{H}} = \dfrac{\Pb\bkt{\text{H} \mid \text{fake coin}} \Pb\bkt{\text{fake coin}}}{\Pb\bkt{\text{H}}} =1/2$$
+		}
+	\end{itemize}
+	\item
+	A coin, displaying $0$ and $1$ on both sides, and a four sided dice, displaying $1$, $2$, $3$, $4$ on its four faces are tied together by a string and tossed/rolled. Let $X$ denote the number displayed on the coin and $Y$ denote the number displayed on the dice. The joint probability mass function $p_{X,Y}\bkt{x,y}$ is given below.
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|}
+			\hline
+			$X \backslash Y$& $1$ & $2$ & $3$ & $4$\\
+			\hline
+			$0$ & $2/20$ & $3/20$ & $4/20$ & $2/20$\\
+			\hline
+			$1$ & $1/20$ & $2/20$ & $5/20$ & $q$\\
+			\hline
+		\end{tabular}
+	\end{center}
+	\begin{itemize}
+		\item
+		\point Value of $q$ is \fillans{1/20}\\
+		\soln{
+		Sum of all probabilities must be $1$.
+		}
+		\item
+		\point $\Pb(X=0)$, i.e., $p_X(0)$ is \fillans{11/20}\\
+		\soln{Sum of the first row in the table.}
+		\item
+		\point $\Pb(Y=3 \mid X=1)$, i.e., $p_{Y\mid X=1}(3)$ is \fillans{5/9}\\
+		\soln{Restricted sample space is the column corresponding to $Y=3$.}
+		\item
+		\point $\Eb\bkt{X \mid Y=2}$ is \fillans{2/5}\\
+		\soln{Restricted sample space is the column corresponding to $Y=2$.}
+		\item
+		\point $\text{Var}\bkt{Y}$ is \fillans{21/25}\\
+		\soln{
+		We have $P_Y(1) = 3/20$, $P_Y(2) = 5/20$, $P_Y(3) = 9/20$ and $P_Y(4) = 3/20$.
+		}
+	\end{itemize}
+	\item
+	A fair coin is tossed thrice. $\mathbf{A}$ be the event that a head occurs on each of the first two tosses, $\mathbf{B}$ be the event that a tail occurs on the third toss and $\mathbf{C}$ be the event that exactly two tails occur in the three tosses.\\
+	\soln{$A = \{HHH,HHT\}$, $B = \{HHT,HTT,THT,TTT\}$, $C = \{HTT,THT,TTH\}$.}
+	\begin{itemize}
+		\item
+		\point
+		$\Pb\bkt{\mathbf{B \dcap C}}$ \fillans{2/8}
+		\item
+		\point
+		$\Pb\bkt{\mathbf{A \dcap B^c}}$ \fillans{1/8}
+		\item
+		\point
+		$\Pb\bkt{\mathbf{A^c \dcap C^c}}$ \fillans{3/8}
+	\end{itemize}
+	\item
+	A candidate can appear for a competitive exam \textbf{atmost thrice till he clears it}. Probability of him passing the exam in a given attempt is $p \in (0,1)$, independent of other attempts. Let $X$ be the number of attempts.
+	\begin{itemize}
+		\item
+		\point The probability that he clears the exam is \fillans{1-\bkt{1-p}^3}\\
+		\soln{Probability he doesn't clear is $(1-p)^3$.}
+		\item
+		\points{3} If $p_X(x)$ denotes the probability mass function of the random variable $X$, then
+		\begin{itemize}
+			\item
+			\point $p_X(1) = $\fillans{p}
+			\item
+			\point $p_X(2) = $\fillans{p(1-p)}
+			\item
+			\point $p_X(3) = $\fillans{(1-p)^2}
+		\end{itemize}
+		\item
+		\point Expected number of attempts is \fillans{p^2-3p+3}\\
+		\soln{$\dsum_{k=1}^3 k p_X(k)$}
+	\end{itemize}
+\end{enumerate}
+
+\end{document}
