@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1550556722 "quiz_1soln.tex" "quiz_1soln.pdf" "quiz_1soln" 1550556723
+["pdflatex"] 1550637635 "quiz_1soln.tex" "quiz_1soln.pdf" "quiz_1soln" 1550637660
   "/usr/local/texlive/2017/texmf-dist/fonts/map/fontname/texfonts.map" 1480098670 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2017/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1480098698 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2017/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1480098698 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -71,9 +71,9 @@
   "/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1495593472 2350277 a699055bee05bf8a40b0504752487295 ""
   "/usr/local/texlive/2017/texmf-var/web2c/pdftex/pdflatex.fmt" 1522838516 4129591 6ac1a11e69aa92c791af712b9a5949e2 ""
   "/usr/local/texlive/2017/texmf.cnf" 1495593465 577 2b71d4d888f9e5560b2e99985915a9fa ""
-  "quiz_1soln.aux" 1550556723 8 a94a2480d3289e625eea47cd1b285758 ""
-  "quiz_1soln.tex" 1550556656 5734 2c7031eec6631a60e617a3746e563b8d ""
+  "quiz_1soln.aux" 1550637636 8 a94a2480d3289e625eea47cd1b285758 ""
+  "quiz_1soln.tex" 1550637632 5731 93d5e841c3c84f103f2e427255eb160e ""
   (generated)
-  "quiz_1soln.pdf"
   "quiz_1soln.log"
+  "quiz_1soln.pdf"
   "quiz_1soln.aux"
