@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1552538804 "Problem_Set_4.tex" "Problem_Set_4.pdf" "Problem_Set_4" 1552538804
+["pdflatex"] 1552538911 "Problem_Set_4.tex" "Problem_Set_4.pdf" "Problem_Set_4" 1552538911
   "/usr/local/texlive/2017/texmf-dist/fonts/map/fontname/texfonts.map" 1480098670 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2017/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1480098698 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2017/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1480098698 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -130,9 +130,9 @@
   "/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1495593472 2350277 a699055bee05bf8a40b0504752487295 ""
   "/usr/local/texlive/2017/texmf-var/web2c/pdftex/pdflatex.fmt" 1522838516 4129591 6ac1a11e69aa92c791af712b9a5949e2 ""
   "/usr/local/texlive/2017/texmf.cnf" 1495593465 577 2b71d4d888f9e5560b2e99985915a9fa ""
-  "Problem_Set_4.aux" 1552538804 8 a94a2480d3289e625eea47cd1b285758 ""
-  "Problem_Set_4.tex" 1552538802 2605 668da80327df0bc84a446f4f5cdcb89b ""
+  "Problem_Set_4.aux" 1552538911 8 a94a2480d3289e625eea47cd1b285758 ""
+  "Problem_Set_4.tex" 1552538910 2605 3860c0e8599894082f4db12b4a7739ff ""
   (generated)
+  "Problem_Set_4.pdf"
   "Problem_Set_4.aux"
   "Problem_Set_4.log"
-  "Problem_Set_4.pdf"
