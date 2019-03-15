@@ -1,0 +1,74 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb}
+\usepackage{fullpage}
+\usepackage{enumerate}
+\usepackage{tikz}
+
+\newcommand{\dsum}{\displaystyle\sum}
+\newcommand{\dint}{\displaystyle\int}
+\newcommand{\abs}[1]{\displaystyle\left\lvert#1\right\rvert}
+\newcommand{\dbcup}{\displaystyle\bigcup}
+\newcommand{\dbcap}{\displaystyle\bigcap}
+\newcommand{\dcup}{\displaystyle\cup}
+\newcommand{\dcap}{\displaystyle\cap}
+\newcommand{\Pb}{\mathbb{P}}
+\newcommand{\Eb}{\mathbb{E}}
+\newcommand{\bkt}[1]{\left(#1\right)}
+\newcommand{\soln}[1]{\\ \textbf{Solution}:#1\\}
+\title{MA2040: Probability, Statistics and Stochastic Processes\\
+Problem Set-IV}
+\author{Sivaram Ambikasaran}
+\begin{document}
+	\maketitle
+	\begin{enumerate}
+		\item
+		Let $X$ and $Y$ have joint pdf $f_{X,Y}(x,y) = \begin{cases}
+		6 e^{-\bkt{2x+3y}} & x,y \geq 0\\
+		0 & \text{otherwise}
+		\end{cases}$
+	\begin{itemize}
+		\item
+		Are $X$ and $Y$ independent?\\
+		\soln{
+		We have
+		$$f_X(x) = \dint_0^{\infty}f_{X,Y}(x,y)dy = 2e^{-2x}$$
+		$$f_Y(y) = \dint_0^{\infty}f_{X,Y}(x,y)dx = 3e^{-3y}$$
+		We have $f_{X,Y} = f_X \cdot f_Y$. Hence, $X$ and $Y$ are independent.
+		}
+		\item
+		Find $\mathbb{E}\bkt{Y \mid X>2}$\\
+		\soln{
+		Since $X$ and $Y$ are independent, conditioning on $X$ doesn't affect $Y$. Hence, $$\mathbb{E}\bkt{Y \mid X>2} = \mathbb{E}\bkt{Y} = \dint_0^{\infty}3ye^{-3y}dy = \dfrac13$$
+		}
+		\item
+		Find $\Pb\bkt{X > Y}$\\
+		
+	\end{itemize}
+	\item
+	Let $X \sim \text{Uniform}(1,2)$ and given $X=x$, $Y$ follows an exponential distribution with $Y \sim \text{EXP}\bkt{\lambda=x}$. Find the covariance of $X$ and $Y$.
+	\item
+	Let $X$ and $Y$ be independent standard normal random variables. Find covariance of $Z$ and $W$, where $Z = 1+X+XY^2$ and $W = 1+X$.
+	\item
+	A fair die is rolled $n$ times. Let $X$ be the number of $1$'s and $Y$ be the number of $2$'s. Find the correlation coefficient $\rho(X,Y)$.
+	\item
+	Let $32$ people sit around a round table. Each person tosses a fair coin. Anyone whose outcome is different from both his neighbors is taken out from the group. If $X$ is the total number of such persons, find variance of $X$.
+	\item
+	The moment generating function of a random variable $X$ is given by
+	$$M_X(s) = \dfrac2{2-s}, \,\,\, \forall s \in (-\infty,2)$$
+	Find the distribution of $X$.
+	\item
+	Let $X \sim \text{Binomial}(n,p)$ and $Y \sim \text{Binomial}(m,p)$ be independent random variables. Show that $X+Y \sim \text{Binomial}(m+n,p)$.
+	\item
+	Show that the function $e^{-s}$ is a moment generating function.
+	\item
+	Show that if $M(s)$ is a moment generating function, so is $M(cs)$.
+	\item
+	Show that if $M(s)$ is a moment generating function, $cM(s)$ cannot be a moment generating function for $c \neq 1$.
+	\item
+	Show that if $M(s)$ is a moment generating function, then $e^{-s}M(s)$ is also a moment generating function.
+	\item
+	The moment generating function of a random variable $X$ is
+	$$M_X(s) = \dfrac{e^{-2s}}6 + \dfrac{e^{-s}}3 + \dfrac{e^{s}}4 + \dfrac{e^{2s}}4$$
+	Show that $P\bkt{\abs{X} \leq 1} = \dfrac7{12}$.
+	\end{enumerate}
+\end{document}

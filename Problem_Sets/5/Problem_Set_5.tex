@@ -1,0 +1,64 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb}
+\usepackage{fullpage}
+\usepackage{enumerate}
+\usepackage{tikz}
+
+\newcommand{\dsum}{\displaystyle\sum}
+\newcommand{\dint}{\displaystyle\int}
+\newcommand{\abs}[1]{\displaystyle\left\lvert#1\right\rvert}
+\newcommand{\dbcup}{\displaystyle\bigcup}
+\newcommand{\dbcap}{\displaystyle\bigcap}
+\newcommand{\dcup}{\displaystyle\cup}
+\newcommand{\dcap}{\displaystyle\cap}
+\newcommand{\Pb}{\mathbb{P}}
+\newcommand{\Rb}{\mathbb{R}}
+\newcommand{\Eb}{\mathbb{E}}
+\newcommand{\bkt}[1]{\left(#1\right)}
+\title{MA2040: Probability, Statistics and Stochastic Processes\\
+Problem Set-V}
+\author{Sivaram Ambikasaran}
+\begin{document}
+	\maketitle
+	\begin{enumerate}
+		\item
+		Let $\{X_i\}_{i=1}^{64}$ be a random sample from a normal distribution with mean $\mu = 50$ and variance $\sigma^2=16$. Find $\Pb\bkt{49 < X_8 < 51}$ and $\Pb\bkt{49 < \overline{X} < 51}$.
+		\item
+		Let $Y = X_1+X_2+\cdots+X_15$ be the sum of a random sample of size $15$ from the population whose probability density function is given by
+		$$f_X(x) = \begin{cases}
+		kx^2 & \abs{x} \leq 1\\
+		0 & \text{otherwise}
+		\end{cases}$$
+		What is the approximate value of $\Pb\bkt{-0.3<Y<1.5}$ when one uses Central Limit Theorem?
+		\item
+		Light bulbs are installed successively into a socket. If we assume that each bulb has a mean life of $1$ year with a standard deviation of $0.25$ years, what is the probability that $40$ bulbs will last for at least $50$ years?
+		\item
+		A random sample of size $36$ is taken from the population whose pdf is given by $f_X(x) = 2e^{-2x}$, for $x \geq 0$. If $\overline{X}$ denotes the sample mean, find $\Eb\bkt{\overline{X}}$ and $\Eb\bkt{\overline{X}^2}$. Also find the probability that $\overline{X} \in \left[\frac14,\frac34\right]$.
+		\item
+		In order to estimate $f$, the true fraction of smokers in a large population, Alvin selects $n$ people at random. His estimator $M_n$ is obtained by dividing $S_n$ (the number of smokers in his sample) by $n$, i.e., $M_n=S_n/n$. Alvin chooses the sample size $n$ to be the smallest possible number for which the Chebyshev inequality yields a guarantee that 
+		$$\Pb \bkt{\abs{M_n-f} \geq \epsilon} \leq \delta$$
+		where $\epsilon$ and $\delta$ are some prespecified tolerances. Determine how the value of $n$ recommended by the Chebyshev inequality changes in the following cases.
+		\begin{enumerate}
+			\item
+			The value of $\epsilon$ is reduced to half its original value.
+			\item
+			The value of $\delta$ is reduced to half its original value.
+		\end{enumerate}
+		\item
+		Before starting to play the roulette in a casino, you want to look for biases that you can exploit. You therefore watch $100$ rounds that result in a number between $1$ and $36$, and count the number of rounds for which the result is odd. If the count exceeds $55$, you decide that the roulette is not fair. Assuming that the roulette is fair, find an approximation for the probability that you will make the wrong decision. (HINT: Central Limit Theorem)
+		\item
+		\textbf{Proof of Central Limit Theorem}: Let $\{X_i\}_{i=1}^n$ be a sequence of independent identically distributed random variables with mean zero, with variance, say $\sigma^2$, and associated transform $M_X(s)$. We assume that $M_X(s)$ is finite for $s \in \bkt{-d,d}$, for some $d \in \Rb^+$. Let
+		$$Z_n = \dfrac{X_1+X_2+\cdots+X_n}{\sigma \sqrt{n}}$$
+		\begin{enumerate}
+			\item
+			Show that the transform associated with $Z_n$ is given by
+			$$M_{Z_n}(s) = \bkt{M_x\bkt{\dfrac{s}{\sigma\sqrt{n}}}}^n$$
+			\item
+			Write the first two terms and the error term of the Taylor series expansion of $M_X$ around $s=0$.
+			\item
+			From the above conclude that
+			$$\lim_{n \to \infty} M_{Z_n}(s) = e^{s^2/2}$$
+			for all $s$. And note that $e^{s^2/2}$ is the moment generating function of a standard normal random variable.
+		\end{enumerate}
+	\end{enumerate}
+\end{document}
