@@ -1,0 +1,118 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb}
+\usepackage{fullpage}
+\usepackage{enumerate}
+\usepackage{tikz}
+
+\newcommand{\dsum}{\displaystyle\sum}
+\newcommand{\dint}{\displaystyle\int}
+\newcommand{\abs}[1]{\displaystyle\left\lvert#1\right\rvert}
+\newcommand{\dbcup}{\displaystyle\bigcup}
+\newcommand{\dbcap}{\displaystyle\bigcap}
+\newcommand{\dcup}{\displaystyle\cup}
+\newcommand{\dcap}{\displaystyle\cap}
+\newcommand{\Pb}{\mathbb{P}}
+\newcommand{\Eb}{\mathbb{E}}
+\newcommand{\bkt}[1]{\left(#1\right)}
+\newcommand{\soln}[1]{\\ \textbf{Solution}:#1\\}
+\title{MA2040: Probability, Statistics and Stochastic Processes\\
+Problem Set-IV}
+\author{Sivaram Ambikasaran}
+\begin{document}
+	\maketitle
+	\begin{enumerate}
+		\item
+		Let $X$ and $Y$ have joint pdf $f_{X,Y}(x,y) = \begin{cases}
+		6 e^{-\bkt{2x+3y}} & x,y \geq 0\\
+		0 & \text{otherwise}
+		\end{cases}$
+	\begin{itemize}
+		\item
+		Are $X$ and $Y$ independent?\\
+		\soln{
+		We have
+		$$f_X(x) = \dint_0^{\infty}f_{X,Y}(x,y)dy = 2e^{-2x}$$
+		$$f_Y(y) = \dint_0^{\infty}f_{X,Y}(x,y)dx = 3e^{-3y}$$
+		We have $f_{X,Y} = f_X \cdot f_Y$. Hence, $X$ and $Y$ are independent.
+		}
+		\item
+		Find $\mathbb{E}\bkt{Y \mid X>2}$\\
+		\soln{
+		Since $X$ and $Y$ are independent, conditioning on $X$ doesn't affect $Y$. Hence, $$\mathbb{E}\bkt{Y \mid X>2} = \mathbb{E}\bkt{Y} = \dint_0^{\infty}3ye^{-3y}dy = \dfrac13$$
+		}
+		\item
+		Find $\Pb\bkt{X > Y}$\\
+		\soln{
+		$$\Pb\bkt{X > Y} = \dint_0^{\infty} \Pb\bkt{X>y}f_Y(y)dy = \dint_0^{\infty}\bkt{1-F_X\bkt{y}}f_Y(y)dy = 1-3\dint_0^{\infty}\bkt{1-e^{-2y}}e^{-3y}dy = 3/5$$
+		}
+	\end{itemize}
+	\item
+	Let $X \sim \text{Uniform}(1,2)$ and given $X=x$, $Y$ follows an exponential distribution with $Y \sim \text{EXP}\bkt{\lambda=x}$. Find the covariance of $X$ and $Y$.\\
+	\soln{
+	We have
+	$$f_{XY}\bkt{x,y} = f_{Y \mid X}f_X = xe^{-xy}$$
+	This gives us
+	$$\text{Cov}\bkt{X,Y} = \Eb\bkt{XY}-\Eb\bkt{X}\Eb\bkt{Y} = 1-3/2 \ln(2)$$
+	}
+	\item
+	Let $X$ and $Y$ be independent standard normal random variables. Find covariance of $Z$ and $W$, where $Z = 1+X+XY^2$ and $W = 1+X$.\\
+	\soln{
+	$\Eb\bkt{Z} = 1$ and $\Eb{W} = 1$. Further, $\Eb\bkt{ZW} = \Eb\bkt{1+2X+X^2 + XY^2 + X^2Y^2} = 3$.
+	Hence, covariance is $2$.
+	}
+	\item
+	A fair die is rolled $n$ times. Let $X$ be the number of $1$'s and $Y$ be the number of $2$'s. Find the correlation coefficient $\rho(X,Y)$.\\
+	\soln{
+	Let $Z=X+Y$. $X$, $Y$ are binomial random variables with $p=1/6$, while $Z$ is a binomial random variable with $p=1/3$. Hence, $\text{Var}(X) = \text{Var}(Y) = 5n/36$ and $\text{Var}(Z) = 2n/9$. Hence,
+	$$\text{Cov}\bkt{X,Y} = \dfrac12\bkt{2n/9-5n/18} = -n/36$$
+	Hence, $\rho = -1/5$.
+	}
+	\item
+	Let $32$ people sit around a round table. Each person tosses a fair coin. Anyone whose outcome is different from both his neighbors is taken out from the group. If $X$ is the total number of such persons, find variance of $X$.\\
+	\soln{
+	Consider the random variable $P_i$, which takes a value $1$, when the $i^{th}$ person's outcome differs from his both neighbors and takes the value $0$, when the outcomes of him matches with both his neighbors. We see that $P_i = 1$ with a probability of $1/4$ and $P_i=0$ with a probability of $3/4$. Now we have $X = \dsum_{i=1}^{32} P_i$, which is a binomial random variable with $n=32$ and $p=1/4$. Hence, $\text{Var}\bkt{X} = 6$.
+	}
+	\item
+	The moment generating function of a random variable $X$ is given by
+	$$M_X(s) = \dfrac2{2-s}, \,\,\, \forall s \in (-\infty,2)$$
+	Find the distribution of $X$.\\
+	\soln{
+	$X$ is exponential with $\lambda=2$.}
+	\item
+	Let $X \sim \text{Binomial}(n,p)$ and $Y \sim \text{Binomial}(m,p)$ be independent random variables. Show that $X+Y \sim \text{Binomial}(m+n,p)$.\\
+	\soln{Use the MGF to conclude.}
+	\item
+	Show that the function $e^{-s}$ is a moment generating function.\\
+	\soln{
+	Consider the random variable which takes only the value $-1$, i.e., $\Pb\bkt{X=-1}=1$. The MGF is $e^{-s}$.
+	}
+	\item
+	Show that if $M(s)$ is a moment generating function, so is $M(cs)$.\\
+	Soln{
+	If $M(s)$ is the mgf of $X$, then consider the random variable variable $Z = X/c$.
+	}
+	\item
+	Show that if $M(s)$ is a moment generating function, $cM(s)$ cannot be a moment generating function for $c \neq 1$.\\
+	\soln{
+	The mgf needs to be $1$ at $s=0$.
+	}
+	\item
+	Show that if $M(s)$ is a moment generating function, then $e^{-s}M(s)$ is also a moment generating function.\\
+	\soln{
+	If $M(s)$ is the mgf of $X$, then consider the random variable variable $Z = X-1$.
+	}
+	\item
+	The moment generating function of a random variable $X$ is
+	$$M_X(s) = \dfrac{e^{-2s}}6 + \dfrac{e^{-s}}3 + \dfrac{e^{s}}4 + \dfrac{e^{2s}}4$$
+	Show that $P\bkt{\abs{X} \leq 1} = \dfrac7{12}$.\\
+	\soln{
+	This is a discrete random variable.
+	$$\Pb\bkt{X=k}=\begin{cases}
+	1/6 & \text{ if }X=-2\\
+	1/3 & \text{ if }X=-1\\
+	1/4 & \text{ if }X=1\\
+	1/4 & \text{ if }X=2
+	\end{cases}$$
+	}
+	\end{enumerate}
+\end{document}
