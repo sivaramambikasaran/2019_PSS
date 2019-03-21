@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.4.4)  21 MAR 2019 13:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.4.4)  21 MAR 2019 13:41
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -628,6 +628,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 95--100
  []
 
 
+Underfull \hbox (badness 10000) in paragraph at lines 100--105
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 100--105
+
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 105--110
 
  []
@@ -678,7 +688,7 @@ ts/cm/cmr17.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts
 /cmsy10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/
 cmsy7.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/symbo
 ls/msbm10.pfb>
-Output written on Problems_soln.pdf (3 pages, 125070 bytes).
+Output written on Problems_soln.pdf (3 pages, 125061 bytes).
 PDF statistics:
  61 PDF objects out of 1000 (max. 8388607)
  44 compressed objects within 1 object stream
