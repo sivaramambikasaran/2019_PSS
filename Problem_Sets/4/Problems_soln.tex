@@ -70,7 +70,17 @@ Problem Set-IV}
 	\item
 	Let $32$ people sit around a round table. Each person tosses a fair coin. Anyone whose outcome is different from both his neighbors is taken out from the group. If $X$ is the total number of such persons, find variance of $X$.\\
 	\soln{
-	Consider the random variable $P_i$, which takes a value $1$, when the $i^{th}$ person's outcome differs from his both neighbors and takes the value $0$, when the outcomes of him matches with both his neighbors. We see that $P_i = 1$ with a probability of $1/4$ and $P_i=0$ with a probability of $3/4$. Now we have $X = \dsum_{i=1}^{32} P_i$, which is a binomial random variable with $n=32$ and $p=1/4$. Hence, $\text{Var}\bkt{X} = 6$.
+	Consider the random variable $P_i$, which takes a value $1$, when the $i^{th}$ person's outcome differs from his both neighbors and takes the value $0$, when the outcomes of him matches with both his neighbors. We see that $P_i = 1$ with a probability of $1/4$ and $P_i=0$ with a probability of $3/4$. Now we have $X = \dsum_{i=1}^{32} P_i$. $X$ is \textbf{not a binomial random variable}, since for instance, $P_i$ and $P_{i+1}$ are dependent, (in fact they are also correlated), since
+	$$\text{Cov}\bkt{P_i P_{i+1}} = \Eb\bkt{P_i P_{i+1}} - \Eb\bkt{P_i} \Eb\bkt{P_{i+1}} = 1/8-1/4 \times 1/4 = 1/16$$
+	Hence, we have that
+	$$\text{Var}\bkt{X} = \text{Var}\bkt{\dsum_{i=1}^{32} P_i} = \dsum_{i=1}^{32}\text{Var}\bkt{P_i} + \dsum_{i \neq j} \text{Cov}\bkt{P_iP_j}$$
+	Note that if $i$ and $j$ are apart by more than $2$, i.e., if $\abs{i-j}\pmod{32} \geq 3$, then $P_i$ and $P_j$ are independent. Hence, $\text{Cov}\bkt{P_iP_j} = 0$ for $\abs{i-j}\pmod{32} \geq 3$. The only non-zero covariances involving $P_i$ are along with $P_{i\pm1}$ and $P_{i \pm 2}$. (The indices $i\pm1$ and $i\pm2$ will be interpreted $\pmod{32}$ always). We have
+	$$\text{Cov}\bkt{P_i P_{i \pm 1}} = \Eb\bkt{P_i P_{i \pm 1}} - \Eb\bkt{P_i}\Eb\bkt{P_{i \pm 1}} = 1/16$$
+	$$\text{Cov}\bkt{P_i P_{i \pm 2}} = \Eb\bkt{P_i P_{i \pm 2}} - \Eb\bkt{P_i}\Eb\bkt{P_{i \pm 2}} = 1/2^4 - 1/4 \times 1/4 = 0$$
+	Hence, we obtain
+	$$\text{Var}\bkt{X} = \dsum_{i=1}^{32} \bkt{\text{Var}\bkt{P_i} + \text{Cov}\bkt{P_i P_{i+1}} + \text{Cov}\bkt{P_i P_{i-1}} + \text{Cov}\bkt{P_i P_{i+2}} + \text{Cov}\bkt{P_i P_{i-2}}}$$
+	This gives us
+	$$\text{Var}\bkt{X} = \dsum_{i=1}^{32} \bkt{\dfrac14 \times \dfrac34 + \dfrac1{16} + \dfrac1{16}} = 10$$
 	}
 	\item
 	The moment generating function of a random variable $X$ is given by
